@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -10,8 +12,7 @@ body {
   align-items: center;
   height: 100vh;
   font-family: "Barlow Semi Condensed", sans-serif;
-  //   width: 100%;
-  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background: radial-gradient($bg-color);
   color: white;
 }
 
@@ -21,7 +22,7 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  width: 60%;
+  width: 45%;
   margin-top: 5vh;
   height: 15vh;
   border-radius: 10px;
@@ -67,20 +68,17 @@ body {
   position: relative;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  width: auto;
-  // height: 500px;
+  width: 400px;
   margin: auto;
-  height: auto;
+  height: 400px;
   padding: 2%;
-  // border: 5px solid red;
   .choice {
     position: absolute;
-    // border: 15px solid;
-    // background-color: white;
     background-color: white;
     padding: 35px;
     border-radius: 50%;
+    width: 80%;
+    height: 80%;
   }
   .img-container {
     position: absolute;
@@ -91,26 +89,22 @@ body {
   .paper__img-container {
     left: 0;
     top: 0;
-    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    background: linear-gradient($paper-border-color);
     .choice__triangle--papier {
       transform: translate(-50%, -50%);
       left: 50%;
       top: 50%;
-      width: 80%;
-      height: 80%;
     }
   }
   .scissors__img-container {
     position: absolute;
     right: 0;
     top: 0;
-    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    background: linear-gradient($scissors--border-color);
     .choice__triangle--scissors {
       transform: translate(-50%, -50%);
       left: 50%;
       top: 50%;
-      width: 80%;
-      height: 80%;
     }
   }
 
@@ -119,13 +113,34 @@ body {
     left: 50%;
     right: 50%;
     transform: translate(-50%, 0%);
-    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    background: linear-gradient($rock--border-color);
   }
   .choice__triangle--rock {
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
-    width: 80%;
-    height: 80%;
   }
+}
+
+.rules {
+  display: flex;
+  position: relative;
+  left: 45%;
+  margin-bottom: 2%;
+  // width: 50%;
+  // justify-content: center;
+  // justify-content: flex-end;
+  align-items: center;
+  padding: 20px 38px;
+  border-radius: 10px;
+  height: 20px;
+  // border: 3px solid hsl(217, 16%, 45%);
+  border: 1px solid white;
+}
+
+.rules p {
+  font-weight: 600;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: white;
 }
