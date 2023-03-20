@@ -1,4 +1,5 @@
 @import "variables.scss";
+@import "pick.scss";
 
 * {
   box-sizing: border-box;
@@ -137,8 +138,9 @@ body {
 
 .rules {
   display: flex;
-  position: relative;
-  left: 45%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
   margin: 2%;
   // margin-right: 2%;
   align-items: center;
