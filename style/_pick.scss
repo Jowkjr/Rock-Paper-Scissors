@@ -45,18 +45,19 @@
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
-  .pick--scissors {
-    position: absolute;
-    background-color: white;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    padding: 30px;
-    width: 185px;
-    height: 185px;
-    top: 50%;
-    border-radius: 50%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-  }
+}
+
+.pick {
+  position: absolute;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  padding: 40px;
+  width: 185px;
+  height: 185px;
+  top: 50%;
+  border-radius: 50%;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 .enemy__pick {
@@ -77,16 +78,15 @@
     position: absolute;
     margin-top: 80px;
     // background: linear-gradient($scissors--border-color);
-    // width: 220px;
+    width: 250px;
     height: 250px;
-
+    // border: 5px solid red;
     border-radius: 50%;
     // box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
-  .img-container-pick {
+
+  .img-container-pick.draw {
     position: absolute;
-    // background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-    // opacity: 0.5;
     background-color: #000;
     opacity: 0.2;
     transform: translate(-50%, -50%);
@@ -96,6 +96,16 @@
     height: 200px;
     top: 50%;
     border-radius: 50%;
-    // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  }
+
+  .img-container-pick {
+    position: absolute;
+    // margin-top: 80px;
+    background: linear-gradient($rock--border-color);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
   }
 }
