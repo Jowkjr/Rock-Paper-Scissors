@@ -29,37 +29,39 @@
         <span class="header__result-number">12</span>
       </div>
     </header>
-    <!-- <main class="main">
+    <main class="main" id="main">
       <div class="main__choice">
         <img src="./images//bg-triangle.svg" alt="" class="choice__triangle" />
-        <div class="paper__img-container img-container"><img src="./images/icon-paper.svg" alt="" class="choice__triangle--papier choice" /></div>
-        <div class="scissors__img-container img-container"><img src="./images/icon-scissors.svg" alt="" class="choice__triangle--scissors choice" /></div>
-        <div class="rock__img-container img-container"><img src="./images/icon-rock.svg" alt="" class="choice__triangle--rock choice" /></div>
+        <button class="paper__img-container img-container" id="paper__btn" value="paper"><img src="./images/icon-paper.svg" alt="" class="choice__triangle--papier choice" /></button>
+        <button class="scissors__img-container img-container" id="scissors__btn" value="scissors"><img src="./images/icon-scissors.svg" alt="" class="choice__triangle--scissors choice" /></button>
+        <button class="rock__img-container img-container" id="rock__btn" value="rock"><img src="./images/icon-rock.svg" alt="" class="choice__triangle--rock choice" /></button>
       </div>
-    </main> -->
+    </main>
 
-    <section class="picked">
+    <section class="picked" id="picked">
       <div class="my__pick">
         <p>you picked</p>
         <div class="scissors__img-container--pick img-container">
-          <span class="circle__one circle"> </span><span class="circle__two circle"> </span><span class="circle__three circle"> </span><img src="./images/icon-scissors.svg" alt="" class="pick--scissors pick" />
+          <!-- <span class="circle__one circle"> </span><span class="circle__two circle"> </span><span class="circle__three circle"> </span> -->
+          <img src="./images/icon-scissors.svg" alt="" class="pick--scissors pick" />
         </div>
       </div>
       <!-- <div class="show__message lose">
         <p>you lose</p>
         <button class="show__message-btn">play again</button>
-      </div> -->
+      </div>
+
       <div class="show__message win">
         <p>you win</p>
         <button class="show__message-btn">play again</button>
-      </div>
+      </div> -->
 
       <div class="enemy__pick">
         <p>the hause picked</p>
 
         <div class="img-container">
-          <span class="circle__one circle"> </span><span class="circle__two circle"> </span><span class="circle__three circle"> </span>
-          <div class="img-container-pick"><img src="./images/icon-rock.svg" alt="" class="rock--scissors pick" /></div>
+          <!-- <span class="circle__one circle"> </span><span class="circle__two circle"> </span><span class="circle__three circle"> </span> -->
+          <div class="img-container-pick draw"></div>
         </div>
       </div>
     </section>
@@ -75,5 +77,6 @@
       </div>
       <div class="rules__img"><img src="./images/image-rules.svg" alt="" /></div>
     </div> -->
+    <script src="./js/Game.js" type="module"></script>
   </body>
 </html>
