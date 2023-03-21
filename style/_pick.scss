@@ -1,11 +1,12 @@
 .picked {
-  width: 50%;
+  width: 45%;
+  // width: 50%;
   bottom: 5%;
   height: 50%;
   position: relative;
   display: flex;
   margin: auto;
-  //   border: 2px solid red;
+  // border: 2px solid red;
 }
 
 .my__pick {
@@ -31,7 +32,7 @@
     background-color: white;
     padding: 30px;
     border-radius: 50%;
-
+    // box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
     // width: 100%;
     // height: 85%;
   }
@@ -53,16 +54,17 @@
   transform: translate(-50%, -50%);
   left: 50%;
   padding: 40px;
-  width: 185px;
-  height: 185px;
+  width: 190px;
+  height: 190px;
   top: 50%;
   border-radius: 50%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .enemy__pick {
   width: 50%;
   height: 100%;
+
   //   border: 5px solid palegreen;
   position: relative;
   display: flex;
@@ -107,5 +109,31 @@
     border-radius: 50%;
 
     box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  }
+}
+
+.show__message.lose {
+  // position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  // border: 5px solid pink;
+  height: 80%;
+  p {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 700;
+    // padding: 10;
+    margin-bottom: 10px;
+  }
+  .show__message-btn {
+    padding: 15px 60px;
+    text-transform: uppercase;
+    color: hsl(349, 74%, 40%);
+    font-weight: 700;
+    border-radius: 10px;
+    border: 0;
   }
 }
