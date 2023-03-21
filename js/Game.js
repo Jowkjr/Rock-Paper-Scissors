@@ -1,5 +1,6 @@
+import { Rules } from "./Rules.js";
 class Game {
-  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg }) {
+  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox }) {
     // this.paper = paper;
     // this.rock = rock;
     // this.scissors = scissors;
@@ -11,6 +12,7 @@ class Game {
     this.pickedContainer = pickedContainer;
     this.myPickContainer = myPickContainer;
     this.myPickImg = myPickImg;
+    // this.rulesBox = rulesBox;
     this.catchValue();
     // this.changeSection();
   }
@@ -43,11 +45,14 @@ class Game {
     this.main.classList.add("hide");
     this.pickedContainer.classList.add("show");
     console.log(value);
-    // console.log(this.myPickImg);
     this.myPickContainer.classList.add(value);
     this.myPickImg.src = `./images/icon-${value}.svg`;
   }
+
+  //   showRules() {}
 }
+
+const rulesBox = new Rules(document.getElementById("rulesBtn"));
 
 const game = new Game({
   btnPeper: document.getElementById("paper__btn"),
@@ -57,7 +62,10 @@ const game = new Game({
   main: document.getElementById("main"),
   pickedContainer: document.getElementById("picked"),
   myPickContainer: document.getElementById("img-container-pick"),
-  myPickImg: document.getElementById("my-pick-img")
+  myPickImg: document.getElementById("my-pick-img"),
+  imgRulesContainer: document.getElementById("rules__img-container"),
+  rulesBtn: document.getElementById("rulesBtn"),
+  rulesBox
 });
 
 game.start();

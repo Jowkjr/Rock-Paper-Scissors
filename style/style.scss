@@ -150,19 +150,24 @@ body {
   margin: 2%;
   // margin-right: 2%;
   align-items: center;
-  padding: 20px 38px;
+  padding: 18px 38px;
   border-radius: 10px;
   height: 20px;
   border: 1px solid white;
-  p {
-    font-weight: 600;
-    font-size: 18px;
-    text-transform: uppercase;
-    color: white;
-  }
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
 }
 
 .rules__img-container {
+  display: none;
+}
+
+.rules__img-container.show {
+  display: block;
   position: fixed;
   top: 42%;
   left: 50%;
@@ -204,7 +209,7 @@ body {
   }
 }
 
-.hide {
+.dim {
   opacity: 0.7;
   z-index: 1;
 }
