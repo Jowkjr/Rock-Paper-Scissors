@@ -63,8 +63,7 @@
 
 .enemy__pick {
   width: 50%;
-  height: 100%;
-
+  // height: 100%;
   //   border: 5px solid palegreen;
   position: relative;
   display: flex;
@@ -77,11 +76,13 @@
     margin-bottom: 30px;
   }
   .img-container {
-    position: absolute;
-    margin-top: 80px;
+    position: relative;
+
+    margin-top: 30px;
     // background: linear-gradient($scissors--border-color);
     width: 250px;
     height: 250px;
+
     // border: 5px solid red;
     border-radius: 50%;
     // box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -101,7 +102,8 @@
   }
 
   .img-container-pick {
-    position: absolute;
+    // position: absolute;
+    // position: relative;
     // margin-top: 80px;
     background: linear-gradient($rock--border-color);
     width: 250px;
@@ -112,20 +114,18 @@
   }
 }
 
-.show__message.lose {
-  // position: relative;
+.show__message {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 30vw;
-  // border: 5px solid pink;
   height: 80%;
+
   p {
     text-transform: uppercase;
     font-size: 3rem;
     font-weight: 700;
-    // padding: 10;
     margin-bottom: 10px;
   }
   .show__message-btn {
@@ -135,5 +135,46 @@
     font-weight: 700;
     border-radius: 10px;
     border: 0;
+  }
+}
+
+.show__message.lose {
+  .show__message-btn {
+    color: hsl(349, 74%, 40%);
+  }
+}
+
+.circle {
+  position: absolute;
+  background-color: rgb(104, 104, 104);
+  border-radius: 50%;
+  z-index: -1;
+  transform-origin: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.circle__one {
+  width: 150%;
+  height: 150%;
+  opacity: 0.15;
+}
+
+.circle__two {
+  width: 200%;
+  height: 200%;
+  opacity: 0.1;
+}
+
+.circle__three {
+  width: 250%;
+  height: 250%;
+  opacity: 0.08;
+}
+
+.show__message.win {
+  .show__message-btn {
+    color: #3b4363;
   }
 }
