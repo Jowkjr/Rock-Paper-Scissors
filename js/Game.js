@@ -1,6 +1,6 @@
 import { Rules } from "./Rules.js";
 class Game {
-  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox, rulesBtn, imgRulesContainer, header, closeRulesBtn, enemyPickContainer, enemyPickImg }) {
+  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox, rulesBtn, imgRulesContainer, header, closeRulesBtn, enemyPickContainer, enemyPickImg, lose, win }) {
     // this.paper = paper;
     // this.rock = rock;
     // this.scissors = scissors;
@@ -19,9 +19,12 @@ class Game {
     this.closeRulesBtn = closeRulesBtn;
     this.enemyPickContainer = enemyPickContainer;
     this.enemyPickImg = enemyPickImg;
+    this.lose = lose;
+    this.win = win;
     this.catchValue();
     this.showRules();
     this.closeRules();
+    // this.result();
     // this.enemyRandomPick();
     // this.changeSection();
   }
@@ -64,9 +67,10 @@ class Game {
     const elections = ["paper", "scissors", "rock"];
 
     const enemyPick = elections[Math.floor(Math.random() * elections.length)];
-
     this.enemyPickContainer.classList.add(enemyPick);
     this.enemyPickImg.src = `./images/icon-${enemyPick}.svg`;
+
+    this.result(value, enemyPick);
   }
 
   // showRules() {}
@@ -96,6 +100,22 @@ class Game {
 
     return enemyPick;
   }
+
+  result(myPick, enemyPick) {
+    console.log(myPick, enemyPick);
+
+    if ((myPick === "paper" && enemyPick === "rock") || (myPick === "rock" && enemyPick === "scissors") || (myPick === "scissors" && enemyPick === "paper")) {
+      console.log("Wygrałeś!");
+
+      this.win.classList.remove("hide");
+    } else if (myPick === enemyPick) {
+      console.log("Remis!");
+    } else {
+      console.log("Przegrałeś!");
+
+      this.lose.classList.remove("hide");
+    }
+  }
 }
 
 // const rulesBox = new Rules(document.getElementById("rulesBtn"));
@@ -114,7 +134,9 @@ const game = new Game({
   enemyPickImg: document.getElementById("enemy-pick-img"),
   imgRulesContainer: document.getElementById("rules__img-container"),
   rulesBtn: document.getElementById("rulesBtn"),
-  closeRulesBtn: document.getElementById("close-rules")
+  closeRulesBtn: document.getElementById("close-rules"),
+  lose: document.getElementById("lose-message"),
+  win: document.getElementById("win-message")
   // rulesBox
 });
 
