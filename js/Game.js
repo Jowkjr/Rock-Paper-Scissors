@@ -1,6 +1,6 @@
 import { Rules } from "./Rules.js";
 class Game {
-  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox }) {
+  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox, rulesBtn, imgRulesContainer, header, closeRulesBtn }) {
     // this.paper = paper;
     // this.rock = rock;
     // this.scissors = scissors;
@@ -13,11 +13,20 @@ class Game {
     this.myPickContainer = myPickContainer;
     this.myPickImg = myPickImg;
     // this.rulesBox = rulesBox;
+    this.header = header;
+    this.rulesBtn = rulesBtn;
+    this.imgRulesContainer = imgRulesContainer;
+    this.closeRulesBtn = closeRulesBtn;
     this.catchValue();
+    this.showRules();
+    this.closeRules();
     // this.changeSection();
   }
 
-  start() {}
+  start() {
+    // const showRules = this.rulesBox.showRules();
+    // showRules();
+  }
 
   catchValue() {
     this.btnPeper.addEventListener("click", () => {
@@ -49,23 +58,43 @@ class Game {
     this.myPickImg.src = `./images/icon-${value}.svg`;
   }
 
-  //   showRules() {}
+  // showRules() {}
+  //
+  showRules() {
+    this.rulesBtn.addEventListener("click", () => {
+      this.main.classList.add("dim");
+      this.header.classList.add("dim");
+      this.rulesBtn.classList.add("dim");
+      this.imgRulesContainer.classList.add("show");
+    });
+  }
+
+  closeRules() {
+    this.closeRulesBtn.addEventListener("click", () => {
+      this.imgRulesContainer.classList.remove("show");
+      this.main.classList.remove("dim");
+      this.header.classList.remove("dim");
+      this.rulesBtn.classList.remove("dim");
+    });
+  }
 }
 
-const rulesBox = new Rules(document.getElementById("rulesBtn"));
+// const rulesBox = new Rules(document.getElementById("rulesBtn"));
 
 const game = new Game({
   btnPeper: document.getElementById("paper__btn"),
   btnScissors: document.getElementById("scissors__btn"),
   btnRock: document.getElementById("rock__btn"),
   buttons: document.querySelectorAll(".img-container"),
+  header: document.getElementById("header"),
   main: document.getElementById("main"),
   pickedContainer: document.getElementById("picked"),
   myPickContainer: document.getElementById("img-container-pick"),
   myPickImg: document.getElementById("my-pick-img"),
   imgRulesContainer: document.getElementById("rules__img-container"),
   rulesBtn: document.getElementById("rulesBtn"),
-  rulesBox
+  closeRulesBtn: document.getElementById("close-rules")
+  // rulesBox
 });
 
 game.start();

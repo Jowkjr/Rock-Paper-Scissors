@@ -1,8 +1,8 @@
 export class Rules {
   constructor(rulesBtn) {
-    this.rulesBtn = rulesBtn;
+    // this.rulesBtn = rulesBtn;
     // this.element = element;
-    this.showRules();
+    // this.showRules();
     // console.log(this.rulesBtn);
   }
 
@@ -10,7 +10,9 @@ export class Rules {
     // this.rulesBtn.addEventListener("click", () => {
     //   console.log("showRules");
     // });
-    console.log(this.rulesBtn);
+    // console.log(this.rulesBtn.classList);
+    // this.rulesBtn.classList.add('')
+    // console.log("faf");
   }
 }
 
