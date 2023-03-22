@@ -1,6 +1,6 @@
 import { Rules } from "./Rules.js";
 class Game {
-  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox, rulesBtn, imgRulesContainer, header, closeRulesBtn }) {
+  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox, rulesBtn, imgRulesContainer, header, closeRulesBtn, enemyPickContainer, enemyPickImg }) {
     // this.paper = paper;
     // this.rock = rock;
     // this.scissors = scissors;
@@ -17,9 +17,12 @@ class Game {
     this.rulesBtn = rulesBtn;
     this.imgRulesContainer = imgRulesContainer;
     this.closeRulesBtn = closeRulesBtn;
+    this.enemyPickContainer = enemyPickContainer;
+    this.enemyPickImg = enemyPickImg;
     this.catchValue();
     this.showRules();
     this.closeRules();
+    // this.enemyRandomPick();
     // this.changeSection();
   }
 
@@ -53,9 +56,17 @@ class Game {
   changeSection(value) {
     this.main.classList.add("hide");
     this.pickedContainer.classList.add("show");
-    console.log(value);
+    // console.log(value);
     this.myPickContainer.classList.add(value);
     this.myPickImg.src = `./images/icon-${value}.svg`;
+
+    // this.enemyRandomPick(enemyPick);
+    const elections = ["paper", "scissors", "rock"];
+
+    const enemyPick = elections[Math.floor(Math.random() * elections.length)];
+
+    this.enemyPickContainer.classList.add(enemyPick);
+    this.enemyPickImg.src = `./images/icon-${enemyPick}.svg`;
   }
 
   // showRules() {}
@@ -77,6 +88,14 @@ class Game {
       this.rulesBtn.classList.remove("dim");
     });
   }
+
+  enemyRandomPick() {
+    const elections = ["paper", "scissors", "rock"];
+
+    const enemyPick = elections[Math.floor(Math.random() * elections.length)];
+
+    return enemyPick;
+  }
 }
 
 // const rulesBox = new Rules(document.getElementById("rulesBtn"));
@@ -91,6 +110,8 @@ const game = new Game({
   pickedContainer: document.getElementById("picked"),
   myPickContainer: document.getElementById("img-container-pick"),
   myPickImg: document.getElementById("my-pick-img"),
+  enemyPickContainer: document.getElementById("img-container-pick-enemy"),
+  enemyPickImg: document.getElementById("enemy-pick-img"),
   imgRulesContainer: document.getElementById("rules__img-container"),
   rulesBtn: document.getElementById("rulesBtn"),
   closeRulesBtn: document.getElementById("close-rules")
