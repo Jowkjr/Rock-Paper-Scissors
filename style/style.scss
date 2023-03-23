@@ -15,7 +15,7 @@ body {
   font-family: "Barlow Semi Condensed", sans-serif;
   background: radial-gradient($bg-color);
   color: white;
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 .header {
@@ -73,15 +73,11 @@ body {
   width: 660px;
   margin: auto;
   height: 520px;
-  // padding: 2%;
-  // border: 5px solid red;
   .main__choice {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    // border: 5px solid blue;
-    // width: 100%;
     height: 100%;
   }
   .choice__triangle {
@@ -148,7 +144,6 @@ body {
   right: 0;
   bottom: 0;
   margin: 2%;
-  // margin-right: 2%;
   align-items: center;
   padding: 18px 38px;
   border-radius: 10px;
@@ -168,7 +163,6 @@ body {
 
 .rules__img-container.show {
   display: block;
-  // display: flex;
   position: fixed;
   top: 42%;
   left: 50%;
@@ -221,4 +215,40 @@ body {
 
 .hide {
   display: none;
+}
+
+@media (max-width: 1650px) {
+  .picked.show {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .picked.show {
+    width: 85%;
+  }
+  .enemy__pick p,
+  .my__pick p {
+    font-size: 24px;
+  }
+
+  .show__message .show__message-btn {
+    font-size: 18px;
+  }
+  .show__message p {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .picked.show {
+    width: 100%;
+  }
+  .header {
+    width: 60%;
+  }
+  .rules {
+    margin: 3.5%;
+    font-size: 18px;
+  }
 }

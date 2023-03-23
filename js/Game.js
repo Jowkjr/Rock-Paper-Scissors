@@ -1,6 +1,28 @@
 import { Rules } from "./Rules.js";
 class Game {
-  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBtn, imgRulesContainer, header, closeRulesBtn, enemyPickContainer, enemyPickImg, lose, win, draw, playAgain, score }) {
+  constructor({
+    btnPeper,
+    btnScissors,
+    btnRock,
+    buttons,
+    pickedContainer,
+    main,
+    myPickContainer,
+    myPickImg,
+    rulesBtn,
+    imgRulesContainer,
+    header,
+    closeRulesBtn,
+    enemyPickContainer,
+    enemyPickImg,
+    lose,
+    win,
+    draw,
+    playAgain,
+    score,
+    myCircles,
+    enemyCircles
+  }) {
     // this.paper = paper;
     // this.rock = rock;
     // this.scissors = scissors;
@@ -22,20 +44,16 @@ class Game {
     this.lose = lose;
     this.win = win;
     this.draw = draw;
+    this.myCircles = myCircles;
+    this.enemyCircles = enemyCircles;
     this.playAgain = playAgain;
     this.score = score;
-    this.catchValue();
-    this.showRules();
-    this.closeRules();
-    // this.restart();
-    // this.result();
-    // this.enemyRandomPick();
-    // this.changeSection();
   }
 
   start() {
-    // const showRules = this.rulesBox.showRules();
-    // showRules();
+    this.catchValue();
+    this.showRules();
+    this.closeRules();
   }
 
   catchValue() {
@@ -50,27 +68,18 @@ class Game {
     this.btnRock.addEventListener("click", () => {
       this.changeSection(this.btnRock.value);
     });
-
-    // this.btnScissors.addEventListener("click", () => console.log(this.btnScissors.value, this.changeSection()));
-    // this.btnRock.addEventListener("click", () => console.log(this.btnRock.value, this.changeSection()));
-
-    //   this.changeSection();
-    // this.btnPeper.forEach((btn) => {
-    //   btn.addEventListener("click", () => console.log("fsafa"));
-    // });
   }
 
   changeSection(value) {
     this.main.classList.add("hide");
     this.pickedContainer.classList.add("show");
-    // console.log(value);
+
     this.myPickContainer.classList.add(value);
     this.myPickImg.src = `./images/icon-${value}.svg`;
 
-    // this.enemyRandomPick(enemyPick);
-
     const elections = ["paper", "scissors", "rock"];
     const enemyPick = elections[Math.floor(Math.random() * elections.length)];
+
     this.enemyPickContainer.classList.add(enemyPick);
     this.enemyPickImg.src = `./images/icon-${enemyPick}.svg`;
 
@@ -78,8 +87,6 @@ class Game {
     this.restart(value, enemyPick);
   }
 
-  // showRules() {}
-  //
   showRules() {
     this.rulesBtn.addEventListener("click", () => {
       this.main.classList.add("dim");
@@ -110,10 +117,12 @@ class Game {
     this.restart();
     if ((myPick === "paper" && enemyPick === "rock") || (myPick === "rock" && enemyPick === "scissors") || (myPick === "scissors" && enemyPick === "paper")) {
       this.score.textContent++;
+      this.myCircles.classList.remove("hide");
       this.win.classList.remove("hide");
     } else if (myPick === enemyPick) {
       this.draw.classList.remove("hide");
     } else {
+      this.enemyCircles.classList.remove("hide");
       if (this.score.textContent > 0) {
         this.score.textContent--;
       }
@@ -133,12 +142,12 @@ class Game {
         this.myPickImg.src = ``;
         this.enemyPickContainer.classList.remove(enemyPick);
         this.enemyPickImg.src = "";
+        this.myCircles.classList.add("hide");
+        this.enemyCircles.classList.add("hide");
       });
     });
   }
 }
-
-// const rulesBox = new Rules(document.getElementById("rulesBtn"));
 
 const game = new Game({
   btnPeper: document.getElementById("paper__btn"),
@@ -158,10 +167,10 @@ const game = new Game({
   lose: document.getElementById("lose-message"),
   win: document.getElementById("win-message"),
   draw: document.getElementById("draw-message"),
+  enemyCircles: document.getElementById("enemy-circles"),
+  myCircles: document.getElementById("my-circles"),
   playAgain: document.querySelectorAll(".show__message-btn"),
   score: document.getElementById("score")
-  // playAgain: document.getElementById("play-again")
-  // rulesBox
 });
 
 game.start();
