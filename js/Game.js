@@ -1,6 +1,6 @@
 import { Rules } from "./Rules.js";
 class Game {
-  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBox, rulesBtn, imgRulesContainer, header, closeRulesBtn, enemyPickContainer, enemyPickImg, lose, win }) {
+  constructor({ btnPeper, btnScissors, btnRock, buttons, pickedContainer, main, myPickContainer, myPickImg, rulesBtn, imgRulesContainer, header, closeRulesBtn, enemyPickContainer, enemyPickImg, lose, win, draw, playAgain, score }) {
     // this.paper = paper;
     // this.rock = rock;
     // this.scissors = scissors;
@@ -21,9 +21,13 @@ class Game {
     this.enemyPickImg = enemyPickImg;
     this.lose = lose;
     this.win = win;
+    this.draw = draw;
+    this.playAgain = playAgain;
+    this.score = score;
     this.catchValue();
     this.showRules();
     this.closeRules();
+    // this.restart();
     // this.result();
     // this.enemyRandomPick();
     // this.changeSection();
@@ -64,13 +68,14 @@ class Game {
     this.myPickImg.src = `./images/icon-${value}.svg`;
 
     // this.enemyRandomPick(enemyPick);
-    const elections = ["paper", "scissors", "rock"];
 
+    const elections = ["paper", "scissors", "rock"];
     const enemyPick = elections[Math.floor(Math.random() * elections.length)];
     this.enemyPickContainer.classList.add(enemyPick);
     this.enemyPickImg.src = `./images/icon-${enemyPick}.svg`;
 
     this.result(value, enemyPick);
+    this.restart(value, enemyPick);
   }
 
   // showRules() {}
@@ -102,19 +107,34 @@ class Game {
   }
 
   result(myPick, enemyPick) {
-    console.log(myPick, enemyPick);
-
+    this.restart();
     if ((myPick === "paper" && enemyPick === "rock") || (myPick === "rock" && enemyPick === "scissors") || (myPick === "scissors" && enemyPick === "paper")) {
-      console.log("Wygrałeś!");
-
+      this.score.textContent++;
       this.win.classList.remove("hide");
     } else if (myPick === enemyPick) {
-      console.log("Remis!");
+      this.draw.classList.remove("hide");
     } else {
-      console.log("Przegrałeś!");
-
+      if (this.score.textContent > 0) {
+        this.score.textContent--;
+      }
       this.lose.classList.remove("hide");
     }
+  }
+
+  restart(myPick, enemyPick) {
+    this.playAgain.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        this.win.classList.add("hide");
+        this.draw.classList.add("hide");
+        this.lose.classList.add("hide");
+        this.pickedContainer.classList.remove("show");
+        this.main.classList.remove("hide");
+        this.myPickContainer.classList.remove(myPick);
+        this.myPickImg.src = ``;
+        this.enemyPickContainer.classList.remove(enemyPick);
+        this.enemyPickImg.src = "";
+      });
+    });
   }
 }
 
@@ -136,7 +156,11 @@ const game = new Game({
   rulesBtn: document.getElementById("rulesBtn"),
   closeRulesBtn: document.getElementById("close-rules"),
   lose: document.getElementById("lose-message"),
-  win: document.getElementById("win-message")
+  win: document.getElementById("win-message"),
+  draw: document.getElementById("draw-message"),
+  playAgain: document.querySelectorAll(".show__message-btn"),
+  score: document.getElementById("score")
+  // playAgain: document.getElementById("play-again")
   // rulesBox
 });
 

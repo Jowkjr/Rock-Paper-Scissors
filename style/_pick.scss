@@ -142,17 +142,16 @@
   .show__message-btn {
     padding: 15px 60px;
     text-transform: uppercase;
-    color: hsl(349, 74%, 40%);
     font-weight: 700;
     border-radius: 10px;
     border: 0;
+    color: #3b4363;
+    cursor: pointer;
   }
 }
 
 .show__message.lose {
-  .show__message-btn {
-    color: hsl(349, 74%, 40%);
-  }
+  color: hsl(349, 74%, 40%);
 }
 
 .circle {
@@ -185,7 +184,5 @@
 }
 
 .show__message.win {
-  .show__message-btn {
-    color: #3b4363;
-  }
+  color: hsl(139, 76%, 28%);
 }
