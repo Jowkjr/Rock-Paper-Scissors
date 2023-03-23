@@ -138,6 +138,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow-x: hidden;
 }
 
 .circle__one {
@@ -160,28 +161,4 @@
 
 .show__message.win {
   color: hsl(139, 76%, 28%);
-}
-
-@media (max-width: 1650px) {
-  .picked.show {
-    width: 60%;
-  }
-}
-
-@media (max-width: 1250px) {
-  .picked.show {
-    width: 75%;
-  }
-}
-
-@media (max-width: 1000px) {
-  .picked.show {
-    width: 100%;
-  }
-}
-
-@media (max-width: 800px) {
-  .header {
-    width: 60%;
-  }
 }
