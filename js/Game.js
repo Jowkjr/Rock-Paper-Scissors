@@ -73,6 +73,7 @@ class Game {
   changeSection(value) {
     this.main.classList.add("hide");
     this.pickedContainer.classList.add("show");
+    this.rulesBtn.classList.add("show");
 
     this.myPickContainer.classList.add(value);
     this.myPickImg.src = `./images/icon-${value}.svg`;
@@ -144,6 +145,7 @@ class Game {
         this.enemyPickImg.src = "";
         this.myCircles.classList.add("hide");
         this.enemyCircles.classList.add("hide");
+        this.rulesBtn.classList.remove("show");
       });
     });
   }
