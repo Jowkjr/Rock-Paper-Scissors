@@ -1,0 +1,16 @@
+@mixin center-flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin center-flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin text-bold-uppercase {
+  text-transform: uppercase;
+  font-weight: 700;
+}

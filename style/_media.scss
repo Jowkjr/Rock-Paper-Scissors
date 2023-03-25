@@ -1,0 +1,218 @@
+@media (max-width: 1650px) {
+  .picked.show {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1250px) {
+  .picked.show {
+    width: 85%;
+  }
+  .enemy__pick p,
+  .my__pick p {
+    font-size: 24px;
+  }
+
+  .show__message .show__message-btn {
+    font-size: 18px;
+  }
+  .show__message p {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .picked.show {
+    width: 100%;
+  }
+  .header {
+    width: 60%;
+  }
+
+  .rules {
+    margin: 20px;
+    font-size: 18px;
+  }
+}
+
+@media (orientation: portrait) {
+  .header {
+    width: 80%;
+    &__title-game {
+      font-size: 1.5rem;
+      margin-left: 5%;
+      height: 80px;
+      p {
+        height: 20px;
+      }
+    }
+    &__result {
+      width: 100px;
+      height: 80%;
+      margin: 5%;
+      &-number {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .main {
+    width: 100%;
+    height: 400px;
+    margin-top: 20%;
+    .choice__triangle {
+      width: 85%;
+      height: 70%;
+    }
+    .choice {
+      width: 80%;
+      height: 80%;
+    }
+    .img-container {
+      width: 140px;
+      height: 140px;
+    }
+    .paper__img-container {
+      left: 5%;
+    }
+    .scissors__img-container {
+      right: 5%;
+    }
+
+    .rock__img-container {
+      bottom: 16%;
+    }
+  }
+
+  .rules.show {
+    position: relative;
+    margin: auto;
+    top: 0;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -250%);
+    font-size: 18px;
+  }
+
+  .rules__img-container.show {
+    width: 350px;
+    height: 440px;
+  }
+
+  .picked.show {
+    bottom: 5%;
+    height: 50%;
+    overflow: hidden;
+  }
+
+  .my__pick {
+    position: relative;
+    @include center-flex-col;
+    height: 100%;
+    p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .img-container-pick {
+      position: absolute;
+      padding: 30px;
+      border-radius: 50%;
+      margin-top: 80px;
+      width: 165px;
+      height: 165px;
+    }
+  }
+
+  .pick {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    padding: 30px;
+    width: 130px;
+    height: 130px;
+    top: 50%;
+  }
+
+  .enemy__pick {
+    width: 50%;
+    height: 0;
+    position: relative;
+    @include center-flex-col;
+    p {
+      font-size: 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .img-container-pick--enemy {
+      position: relative;
+      margin-top: 30px;
+      width: 165px;
+      height: 165px;
+      border-radius: 50%;
+    }
+    .img-container-pick.draw {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      padding: 30px;
+      width: 200px;
+      height: 200px;
+      top: 50%;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .img-container-pick {
+      width: 165px;
+      height: 165px;
+    }
+  }
+  .show__message {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    margin-top: 30px;
+    width: 100%;
+    height: 250px;
+    p {
+      margin-bottom: 20px;
+      margin-top: 30%;
+    }
+  }
+
+  .circle__one {
+    width: 140%;
+    height: 140%;
+  }
+
+  .circle__two {
+    width: 170%;
+    height: 170%;
+  }
+
+  .circle__three {
+    width: 200%;
+    height: 200%;
+  }
+}
+
+@media (orientation: portrait) and (max-height: 800px) {
+  .header__result {
+    width: 90px;
+    height: 80%;
+    margin: 5%;
+    &-number {
+      font-size: 2.5rem;
+    }
+  }
+
+  .picked.show {
+    height: 60%;
+  }
+
+  .rules.show {
+    transform: translate(-50%, -150%);
+  }
+}
