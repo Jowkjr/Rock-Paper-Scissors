@@ -1,4 +1,4 @@
-import { Rules } from "./Rules.js";
+import { Result } from "./Result.js";
 class Game {
   constructor({
     btnPeper,
@@ -23,9 +23,6 @@ class Game {
     myCircles,
     enemyCircles
   }) {
-    // this.paper = paper;
-    // this.rock = rock;
-    // this.scissors = scissors;
     this.btnPeper = btnPeper;
     this.btnScissors = btnScissors;
     this.btnRock = btnRock;
@@ -34,7 +31,6 @@ class Game {
     this.pickedContainer = pickedContainer;
     this.myPickContainer = myPickContainer;
     this.myPickImg = myPickImg;
-    // this.rulesBox = rulesBox;
     this.header = header;
     this.rulesBtn = rulesBtn;
     this.imgRulesContainer = imgRulesContainer;
@@ -84,7 +80,9 @@ class Game {
     this.enemyPickContainer.classList.add(enemyPick);
     this.enemyPickImg.src = `./images/icon-${enemyPick}.svg`;
 
-    this.result(value, enemyPick);
+    this.decision = new Result(value, enemyPick);
+    this.decision.resultGame(this.score, this.myCircles, this.enemyCircles, this.win, this.draw, this.lose);
+
     this.restart(value, enemyPick);
   }
 
@@ -112,23 +110,6 @@ class Game {
     const enemyPick = elections[Math.floor(Math.random() * elections.length)];
 
     return enemyPick;
-  }
-
-  result(myPick, enemyPick) {
-    this.restart();
-    if ((myPick === "paper" && enemyPick === "rock") || (myPick === "rock" && enemyPick === "scissors") || (myPick === "scissors" && enemyPick === "paper")) {
-      this.score.textContent++;
-      this.myCircles.classList.remove("hide");
-      this.win.classList.remove("hide");
-    } else if (myPick === enemyPick) {
-      this.draw.classList.remove("hide");
-    } else {
-      this.enemyCircles.classList.remove("hide");
-      if (this.score.textContent > 0) {
-        this.score.textContent--;
-      }
-      this.lose.classList.remove("hide");
-    }
   }
 
   restart(myPick, enemyPick) {
